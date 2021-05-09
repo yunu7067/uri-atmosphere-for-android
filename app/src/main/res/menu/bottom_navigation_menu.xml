@@ -4,15 +4,13 @@
         android:id="@+id/bottom_navigation_menu_home"
         android:enabled="true"
         android:icon="@drawable/ic_fluent_weather_sunny_24_regular"
-        android:title="@string/bottom_navigation_menu_home"/>
+        android:title="@string/bottom_navigation_menu_home" />
     <item
         android:id="@+id/bottom_navigation_menu_search"
-        android:enabled="true"
         android:icon="@drawable/ic_fluent_search_24_regular"
-        android:title="@string/bottom_navigation_menu_search"/>
+        android:title="@string/bottom_navigation_menu_search" />
     <item
         android:id="@+id/bottom_navigation_menu_setting"
-        android:enabled="true"
         android:icon="@drawable/ic_fluent_settings_24_regular"
-        android:title="@string/bottom_navigation_menu_setting"/>
+        android:title="@string/bottom_navigation_menu_setting" />
 </menu>
