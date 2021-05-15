@@ -6,32 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/bottom_nav_bar"
+    <TextView
+        android:id="@+id/test_textview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="test"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/test_button"
+        />
 
-    <com.ismaeldivita.chipnavigation.ChipNavigationBar
-        android:id="@+id/bottom_nav_bar"
+
+    <Button
+        android:id="@+id/test_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/black"
-        android:elevation="8dp"
-        android:gravity="bottom"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        app:cnb_addBottomInset="true"
-        app:cnb_menuResource="@menu/bottom_navigation_menu"
+        android:layout_height="100dp"
+        android:text="test"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
+         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+/>
 </androidx.constraintlayout.widget.ConstraintLayout>
