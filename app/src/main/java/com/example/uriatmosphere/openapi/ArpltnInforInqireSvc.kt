@@ -1,9 +1,11 @@
 package com.example.uriatmosphere.openapi
 
 import com.example.uriatmosphere.common.HttpRequest
+import com.example.uriatmosphere.common.HttpRequestOptions
 import com.example.uriatmosphere.openapi.model.MsrstnAcctoRltmMesureDnstyData
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
+import java.lang.Exception
 
 enum class DataTerm(val value: String) {
     DEFAULT("DAILY"),
@@ -63,7 +65,7 @@ class ArpltnInforInqireSvc {
     init {
         ArpltnInforInqireSvcOpts(
             serviceKey = serviceKey,
-            stationName = "전주시",
+            stationName = "삼천동",
             ver = Ver.V1_1.value,
         ).also { options = it }
     }
@@ -71,15 +73,15 @@ class ArpltnInforInqireSvc {
     inner class MsrstnAcctoRltmMesureDnsty {
         private val requestUri = "${endPoint}/getMsrstnAcctoRltmMesureDnsty"
 
-        fun get(): MsrstnAcctoRltmMesureDnstyData {
-            val http = HttpRequest()
-            val res = http.get(requestUri, "test")
-
-
-            return Json { coerceInputValues = true }
-                .decodeFromString<MsrstnAcctoRltmMesureDnstyData>(res)
+        fun get(): MsrstnAcctoRltmMesureDnstyData? {
+            return try {
+                val res = HttpRequest().get(requestUri, HttpRequestOptions(params = options.toMap()))
+                Json { coerceInputValues = true }
+                    .decodeFromString<MsrstnAcctoRltmMesureDnstyData>(res)
+            } catch (e: Exception) {
+                null
+            }
 
         }
-
     }
 }

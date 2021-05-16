@@ -6,14 +6,22 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class MsrstnAcctoRltmMesureDnstyData(
     val response: Response,
-)
+) {
+
+    fun count():Int {
+        return response.body.totalCount
+    }
+
+    fun getItems() : List<Item> {
+        return response.body.items
+    }
+}
 
 @Serializable
 data class Response(
     val header: Header,
     val body: Body,
 )
-
 @Serializable
 data class Header(
     val resultCode: String,
