@@ -4,5 +4,4 @@
     <string name="bottom_navigation_menu_home">현재 대기</string>
     <string name="bottom_navigation_menu_search">위치 검색</string>
     <string name="bottom_navigation_menu_setting">설정</string>
-
 </resources>
