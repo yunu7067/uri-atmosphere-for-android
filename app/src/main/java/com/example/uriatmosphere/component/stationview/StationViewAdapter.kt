@@ -23,7 +23,7 @@ class StationViewAdapter() : RecyclerView.Adapter<StationViewAdapter.StationView
 
     override fun onBindViewHolder(holder: StationViewHolder, position: Int) {
         holder.cardTitle.text = "타이틀"
-        holder.cardIndex.text = "${position}/${totalCount}"
+        holder.cardIndex.text = "${position + 1}/${totalCount}"
     }
 
     override fun getItemCount(): Int {
