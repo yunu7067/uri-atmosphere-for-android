@@ -9,7 +9,10 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.example.uriatmosphere.component.stationview.StationViewAdapter
+import com.example.uriatmosphere.data.AppDatabase
 import com.example.uriatmosphere.databinding.ActivityMainBinding
 import com.example.uriatmosphere.openapi.ArpltnInforInqireSvc
 import com.example.uriatmosphere.openapi.model.MsrstnAcctoRltmMesureDnstyData
@@ -19,16 +22,24 @@ import kotlin.concurrent.thread
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding: ActivityMainBinding
     private var data: MsrstnAcctoRltmMesureDnstyData? = null
+    private lateinit var db: RoomDatabase
 
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        // Load Room Database
+        db = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java, "database-name"
+        ).build()
 
         // Toolbar 레이아웃 구성
         val appbar: Toolbar = binding.toolbar
